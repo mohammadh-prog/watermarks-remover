@@ -4,6 +4,11 @@
 /*
 !/.claude-plugin/
 !/.claude-plugin/**
+# Project-scoped Claude Code skills (install_skill.py --target claude-project).
+!/.claude/
+/.claude/*
+!/.claude/skills/
+!/.claude/skills/**
 !/hooks/
 !/hooks/**
 !/.github/
@@ -16,10 +21,14 @@
 !/docs/**
 !/service/
 !/service/**
+!/skills/
+/skills/*
 !/skills/remove-ai-marks/
 !/skills/remove-ai-marks/**
 !/skills/clean-user-facing-text/
 !/skills/clean-user-facing-text/**
+!/skills/remove-ai-marks-standalone/
+!/skills/remove-ai-marks-standalone/**
 !/tests/
 !/tests/**
 !/.coderabbit.yaml

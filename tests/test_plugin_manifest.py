@@ -85,14 +85,14 @@ def test_marketplace_entry_agrees_with_the_plugin_manifest(plugin, marketplace):
 
 def test_plugin_ships_every_skill_in_the_repository(plugin, marketplace):
     # The plugin has no "skills" field, so Claude Code scans the default
-    # skills/ directory at the plugin root; both shipped skills must be there.
+    # skills/ directory at the plugin root; every shipped skill must be there.
     entry = next(item for item in marketplace["plugins"] if item["name"] == plugin["name"])
     plugin_root = (ROOT / entry["source"]).resolve()
     assert "skills" not in plugin and "skills" not in entry
 
     shipped = {path.parent.name for path in (plugin_root / "skills").glob("*/SKILL.md")}
 
-    assert shipped == {"remove-ai-marks", "clean-user-facing-text"}
+    assert shipped == {"remove-ai-marks", "remove-ai-marks-standalone", "clean-user-facing-text"}
 
 
 def test_plugin_name_does_not_collide_with_a_bundled_skill_name(plugin):

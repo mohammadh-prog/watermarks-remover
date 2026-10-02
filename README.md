@@ -49,7 +49,8 @@ python3 install_skill.py --skill remove-ai-marks --target claude-code
 | Cowork, claude.ai, cloud sessions, routines | `--target cowork` | `dist/<skill>.zip` to upload under **Customize → Skills** |
 | Cursor | `--target cursor` (default) | `~/.cursor/skills/<skill>` |
 
-Shipped skills: `remove-ai-marks` (full, service-backed) and
+Shipped skills: `remove-ai-marks` (full, service-backed),
+`remove-ai-marks-standalone` (files and text, no service, no heavy backends) and
 `clean-user-facing-text` (text only, self-contained). `--list` prints them.
 Existing installations are preserved unless you pass `--force`; replacement is
 staged first and the previous install is kept as a uniquely named backup.
@@ -197,6 +198,20 @@ ships its own scripts:
 
 ```bash
 python3 install_skill.py --skill clean-user-facing-text --target cowork
+```
+
+For files as well as text without a service, upload
+`remove-ai-marks-standalone`. It vendors the service's file pipeline
+(`inspect_file.py` / `clean_file.py` and their stdlib-only modules) and runs it
+in the session's code-execution sandbox. It covers Layer A, Layer B and the
+metadata / C2PA strip for every container above; it does not include pixel or
+audio watermark removal, SynthID / MarkLLM detection, or the external
+`exiftool` / `qpdf` / `ghostscript` / `c2patool` passes unless the sandbox
+happens to provide them. Upload one of the two `remove-ai-marks` variants, not
+both, so requests are not routed to the service-backed one:
+
+```bash
+python3 install_skill.py --skill remove-ai-marks-standalone --target cowork
 ```
 
 ### Grok

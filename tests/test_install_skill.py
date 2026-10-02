@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT))
 
 import install_skill
 
-SKILLS = ("clean-user-facing-text", "remove-ai-marks")
+SKILLS = ("clean-user-facing-text", "remove-ai-marks", "remove-ai-marks-standalone")
 
 
 def _run(home: Path, *args: str, check: bool = True, extra_env: dict[str, str] | None = None):
