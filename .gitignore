@@ -21,10 +21,14 @@
 !/docs/**
 !/service/
 !/service/**
+!/skills/
+/skills/*
 !/skills/remove-ai-marks/
 !/skills/remove-ai-marks/**
 !/skills/clean-user-facing-text/
 !/skills/clean-user-facing-text/**
+!/skills/remove-ai-marks-standalone/
+!/skills/remove-ai-marks-standalone/**
 !/tests/
 !/tests/**
 !/.coderabbit.yaml
