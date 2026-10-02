@@ -4,6 +4,11 @@
 /*
 !/.claude-plugin/
 !/.claude-plugin/**
+# Project-scoped Claude Code skills (install_skill.py --target claude-project).
+!/.claude/
+/.claude/*
+!/.claude/skills/
+!/.claude/skills/**
 !/hooks/
 !/hooks/**
 !/.github/
